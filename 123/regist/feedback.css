@@ -1,0 +1,116 @@
+/* feedback.css */
+
+.container {
+    max-width: 800px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+/* Оставляем остальные стили без изменений */
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Чтобы видео занимало всю доступную область */
+}
+
+.video-background {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.video-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff; /* Цвет текста на видеофоне */
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #fff; /* Цвет заголовка */
+    font-size: 2em; /* Увеличение размера заголовка */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    color: #fff; /* Цвет текста метки */
+}
+
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #333; /* Цвет текста в полях ввода */
+    font-family: Arial, sans-serif;
+    background-color: rgb(255, 255, 255); /* Прозрачный фон для поля ввода */
+}
+
+textarea {
+    min-height: 100px; /* Минимальная высота для textarea */
+    resize: vertical; /* Разрешить вертикальное изменение размера textarea */
+}
+
+textarea::placeholder {
+    font-family: Arial, sans-serif;
+    color: #999; /* Цвет текста placeholder */
+}
+
+button[type="submit"] {
+    padding: 15px 30px; /* Увеличение размера кнопки */
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em; /* Размер шрифта кнопки */
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.feedback-response {
+    margin-top: 20px;
+    color: #fff;
+}
+
+.return-button {
+    margin-top: 20px;
+    margin-left: 105px;
+    padding: 15px 30px; /* Увеличение размера кнопки */
+    background-color: #ff3333; /* Красный цвет кнопки */
+    color: #fff;
+    border: none;
+    border-radius: 8px; /* Увеличение скругления углов */
+    cursor: pointer;
+}
+
+.return-button:hover {
+    background-color: #cc0000; /* Темнее красный при наведении */
+}

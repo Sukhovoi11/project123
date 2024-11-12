@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="feedback.css">
+</head>
+<body class="feedback-page">
+<div class="video-background">
+    <video autoplay muted loop class="video-bg">
+        <source src="../liczba/kio1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="video-content">
+        <div class="container">
+            <h1>Feedback</h1>
+            <form id="feedbackForm" action="send-feedback.php" method="POST">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" cols="50" placeholder="Enter your message" required></textarea><br><br>
+                <button type="submit">Send</button>
+            </form>
+            <div id="feedbackResponse" class="feedback-response"></div>
+            <button id="returnButton" class="return-button">Return to Main Page</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const feedbackForm = document.getElementById('feedbackForm');
+    const feedbackResponse = document.getElementById('feedbackResponse');
+    const returnButton = document.getElementById('returnButton');
+
+    feedbackForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+
+        const formData = new FormData(feedbackForm);
+        fetch('send-feedback.php', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                // odp
+                feedbackResponse.innerHTML = `<p>${data.message}</p>`;
+                if (data.status === 'success') {
+                    // reset po otprawce
+                    feedbackForm.reset();
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                feedbackResponse.innerHTML = '<p>Thank you for your feedback!.</p>';
+                //Ta funkcja nie działa, ponieważ strona jest testowa i nie planuję jej publikować.
+                // Dlatego stworzyłem 'głuszycę', która nawet w przypadku błędu wyświetla komunikat -
+                // 'Dziękujemy za Twoją opinię!'.
+
+            });
+    });
+
+
+    returnButton.addEventListener('click', function() {
+        window.location.href = '/liczba/123123.html';
+    });
+
+    // auto button bez blocka dla strony!!
+    returnButton.style.display = 'block';
+</script>
+</body>
+</html>
